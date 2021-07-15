@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 import { Button, Input, InputGroup } from 'reactstrap';
+import { connect } from "react-redux";
+
+import { setGlobalDisplayColor } from "../../action/userActions.js";
+
 class Settings extends Component {
     state = {  }
+    changeDisplayColor = e => {
+        this.props.setGlobalDisplayColor(e.target.value );
+    }
     render() { 
         return ( <div>
             <div className="row">
                 <div className="col-4"><h2>Display</h2></div>
-                <div className="col-8"><Button color="dark" className="m-2">Dark</Button><Button color="light" className="m-2">Light</Button></div>
+                <div className="col-8">
+                    <Button color="dark" className="m-2" onClick={this.changeDisplayColor.bind(this)} value="black">Dark</Button>
+                    <Button color="light" className="m-2" onClick={this.changeDisplayColor.bind(this)} value="white">Light</Button>
+                </div>
             </div>
             <hr></hr>
             <div className="row">
@@ -93,5 +103,7 @@ class Settings extends Component {
         </div> );
     }
 }
- 
-export default Settings;
+const mapStateToProps = (state) => ({
+    users: state.userState
+});
+export default connect(mapStateToProps, { setGlobalDisplayColor })(Settings);

@@ -1,6 +1,7 @@
 import {
     LOAD_USERS,
     SET_SCREEN_MODE,
+    SET_GLOBAL_DISPLAY_COLOR,
     GET_ERC721_TX
 } from "./types";
 
@@ -20,6 +21,14 @@ export const setScreenMode = (feed) => {
     return {
         type: SET_SCREEN_MODE,
         payload: feed
+    }
+};
+
+export const setGlobalDisplayColor = (color) => {
+    console.log("ACTION // set display color ", color);
+    return {
+        type: SET_GLOBAL_DISPLAY_COLOR,
+        payload: color
     }
 };
 

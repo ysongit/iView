@@ -2,6 +2,7 @@ import {
   LOAD_USERS,
   USERS_LOADED,
   SET_SCREEN_MODE,
+  SET_GLOBAL_DISPLAY_COLOR,
   GET_ERC721_TX,
 } from "../action/types";
 
@@ -12,6 +13,7 @@ const initState = {
   erc721s: [],
   loadingUsers: false,
   screenMode: "landing_lnk",
+  globalDisplayColor: '#aad9d8ff',
   cols: {
     lighting: "dark",
     light: {
@@ -62,6 +64,7 @@ const initState = {
 };
 
 export default function(state = initState, action) {
+  console.log(action.type, "action.type")
   switch (action.type) {
     case LOAD_USERS:
       console.log("RED // User", action.payload);
@@ -76,6 +79,12 @@ export default function(state = initState, action) {
       return {
         ...state,
         screenMode: action.payload,
+      };
+    case SET_GLOBAL_DISPLAY_COLOR:
+      console.log("RED // User", action.payload);
+      return {
+        ...state,
+        globalDisplayColor: action.payload,
       };
     case GET_ERC721_TX:
       return {

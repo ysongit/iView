@@ -22,7 +22,7 @@ class Screen extends Component {
   };
   render() {
     return (
-      <div id="screen">
+      <div id="screen" className="mb-4 p-5" style={{ backgroundColor: this.props.users.globalDisplayColor }}>
         {this.props.screenMode === "landing_lnk" ? (
           <Landing />
         ) : this.props.screenMode === "pyeditor_lnk" ? (
@@ -57,6 +57,7 @@ class Screen extends Component {
   }
 }
 const mapStateToProps = (state) => ({
+  users: state.userState,
   screenMode: state.userState.screenMode,
 });
 export default connect(mapStateToProps, { getUsers })(Screen);

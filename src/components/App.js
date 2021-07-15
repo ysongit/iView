@@ -122,7 +122,7 @@ class App extends Component {
           <main>
             <div className="container py-4">
               <TopMenu />
-              <div className="mb-4 p-5" id="blue">
+              <div id="blue">
                 <Screen />
               </div>
 
